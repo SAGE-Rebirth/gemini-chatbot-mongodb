@@ -1,0 +1,116 @@
+// src/components/Chat.tsx
+import React from 'react';
+
+const Chat: React.FC = () => {
+  return (
+    <div>
+      <h1>Chat Interface</h1>
+      {/* Chat UI implementation */}
+    </div>
+  );
+};
+
+export default Chat;
+
+// src/components/AdminUpload.tsx
+import React from 'react';
+
+const AdminUpload: React.FC = () => {
+  return (
+    <div>
+      <h1>Admin Upload</h1>
+      {/* Admin upload implementation */}
+    </div>
+  );
+};
+
+export default AdminUpload;
+
+// src/api/index.ts
+export const fetchChatResponse = async (query: string) => {
+  // API call to fetch chat response
+};
+
+export const uploadPDF = async (file: File) => {
+  // API call to upload PDF
+};
+
+// src/types/index.ts
+export interface ChatResponse {
+  message: string;
+}
+
+export interface UploadResponse {
+  success: boolean;
+}
+
+// src/pages/ChatPage.tsx
+import React from 'react';
+import Chat from '../components/Chat';
+
+const ChatPage: React.FC = () => {
+  return (
+    <div>
+      <Chat />
+    </div>
+  );
+};
+
+export default ChatPage;
+
+// src/pages/AdminPage.tsx
+import React from 'react';
+import AdminUpload from '../components/AdminUpload';
+
+const AdminPage: React.FC = () => {
+  return (
+    <div>
+      <AdminUpload />
+    </div>
+  );
+};
+
+export default AdminPage;
+
+// src/App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ChatPage from './pages/ChatPage';
+import AdminPage from './pages/AdminPage';
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/chat" component={ChatPage} />
+        <Route path="/admin" component={AdminPage} />
+      </Switch>
+    </Router>
+  );
+};
+
+export default App;
+
+// src/App.css
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+// src/index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './App.css';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
